@@ -1,0 +1,662 @@
+/*STYLE GENERAL*/
+
+body {
+    font-size: 16px;
+}
+a {
+    text-decoration: none;
+}
+p.smwp_label_first {
+    font-size: 1rem;
+    text-align: center;
+}
+h3 {
+    font-weight: 500;
+    font-size: 24px;
+}
+h4 {
+    font-weight: 300;
+    font-size: 20px;
+}
+h4.no-result {
+    color: #000;
+}
+i.dashicons-warning {
+    text-align: right;
+}
+em.smwp-warning {
+    color: red;
+}
+em {
+    font-weight: 500;
+    color: #1a936f;
+}
+#footer-thankyou, 
+#footer-upgrade, 
+input.smwp_input.delete_id_input, 
+.navigation-directory {
+    display: none;
+}
+/*label et menu des bandeaux de page*/
+
+.top-form {
+    position: relative;
+    padding: 15px;
+    color: #fff;
+    background: #114b5f;
+    text-align: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+p label.smwp_label {
+    padding: 1.5%;
+    font-size: 1rem;
+}
+.label-resultat {
+    font-size: 18px;
+    color: #000;
+    font-weight: 500;
+    text-align: center;
+}
+.intro-admin {
+    line-height: 1.5;
+    font-size: 1rem;
+}
+.manage-menus {
+    font-size: 1rem;
+}
+/*MISE EN FORM SELECTION ADRESSE PAGE UPDATE*/
+
+.smwp-adjust-form {
+    height: 25px;
+}
+/*Tableau de bord de l'annuaire - page Options générales*/
+
+.admin-page-directory {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    background-color: #f3e9d2;
+    padding: 4% 0;
+    color: #f3e9d2;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.btn-admin-page-directory {
+    display: grid;
+    margin: 4%;
+    transition: all 0.5s ease-in-out;
+    background: #1a936f;
+    position: relative;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
+    color: #fff;
+    border-radius: 10px;
+    padding: 4% 0 0;
+    height: 150px;
+    border: 5px solid white;
+}
+.info-dashboard {
+    display: grid;
+    grid-column: 1/8;
+    padding-top: 1%;
+}
+.admin-page-options {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    padding: 1% 0;
+}
+.extra-info-options {
+    display: grid;
+    grid-column: 2/7;
+}
+.btn-one {
+    background: #1a936f;
+}
+.btn-two {
+    background: #f45b69;
+}
+.btn-three {
+    background: #114B5F;
+}
+.extra-info-options p {
+    font-size: 1em;
+}
+.btn-admin-page-directory:hover {
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
+    transition: 0.3s ease;
+    transform: scale(1.03);
+}
+.dashicons-admin-page-directory {
+    font-size: 3rem;
+    margin-right: 12%;
+    margin-top: 5%;
+}
+.btn-admin-page-directory h4 {
+    padding-bottom: 20%;
+}
+.bug-btn-admin {
+    margin-top: 0 !important;
+    padding-top: 14%;
+}
+/*MISE EN FORME DU CONTENU*/
+
+.smwp-result-search {
+    padding-top: 4%;
+}
+.smwp-result-search, .no-result, 
+.smwp-create-form.delete-form, 
+.form-group .title-btn-admin-page-directory, 
+.intro-admin, .smwp-card, 
+.smwp-card-result, 
+.btn-admin-page-directory, 
+.form-view-all, 
+.smwp-create-form.add-form {
+    text-align: center;
+}
+.title-btn-admin-page-directory, 
+.smwp-row-name, 
+.smwp-form-title, 
+button.btn-admin, 
+h4, 
+input.btn.btn-primary[type="submit"], 
+.dashicons-admin-page-directory {
+    color: #fff;
+}
+.smwp-directory-row {
+    margin: auto;
+    padding: 0.5%;
+}
+.smwp-row-name {
+    font-size: 1rem;
+    background-color: #1a936f;
+}
+.smwp-row-name.result-name {
+    color: #fff;
+    background-color: #114b5f;
+}
+
+.smwp-directory-row.result-text {
+    background-color: #d5dee5;
+}
+
+div.smwp-card:nth-child(1) 
+div.smwp-list {
+    text-align: center;
+}
+.smwp-card, 
+.smwp-card-result, 
+.smwp-list, 
+.smwp-create-form, 
+.smwp-create-form-lab, 
+.smwp-update-form {
+    position: relative;
+    background: #fff;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
+}
+form#smwp-directory {
+    background: #F3E9D2;
+    padding-bottom: 1%;
+    border-radius: 8px;
+    border-radius: 8px;
+}
+.smwp-result-search {
+    display: grid;
+    grid-row-gap: 30px;
+}
+.smwp-directory-row {
+    width: 32%;
+    display: inline-block;
+}
+.smwp-card {
+    font-size: 0.8em;
+}
+.list-update-card {
+    margin: 1% 0;
+}
+.smwp-card-result {
+    display: inline-block;
+    border-radius: 10px;
+    margin: 2% 0;
+    background-color: #f3e9d2;
+    font-size: 0.8em;
+}
+div.smwp-card-result 
+div.smwp-directory-row.smwp-row-name {
+    background-color: #1a936f;
+    color: #fff;
+}
+.smwp-directory-row-1 {
+    background-color: #c6dabf;
+}
+.smwp-directory-row-2 {
+    background-color: #f3e9d2;
+}
+.column1 {
+    width: 30%;
+    float: left;
+    /* border-top-left-radius: 10px;*/
+}
+#smwp-card-update {
+    background-color: #114b5f;
+    color: #fff;
+}
+.no-result {
+    font-size: 1.5rem;
+    padding: 3%;
+}
+/*STYLE DES FORMULAIRES*/
+
+.smwp-checkbox-form-mme {
+    margin-right: 3%;
+}
+.left, .right {
+    float: left;
+    box-sizing: border-box;
+    padding: 60px 40px 30px 40px;
+    width: 50%;
+}
+div.form-group.full {
+    float: left;
+    box-sizing: border-box;
+    width: 100%;
+}
+.search-form-smwp {
+    background-color: #f3e9d2;
+    /*border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;*/
+}
+.clearfix {
+    overflow: auto;
+}
+.left-search, 
+.middle-search {
+    float: left;
+    box-sizing: border-box;
+    padding: 20px;
+    width: 35%;
+}
+.right-search {
+    float: left;
+    box-sizing: border-box;
+    padding: 20px;
+    width: 30%;
+}
+.lab-form-left, 
+.right.lab-form-right {
+    padding: 0 40px 30px 40px;
+}
+.one-left {
+    float: left;
+}
+.form-group {
+    padding: 2%;
+}
+.update-data-form {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: #f3e9d2;
+    padding: 1% 0 4% 0;
+}
+.update-data-form-left {
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+.update-data-form-right {
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+.smwp-create-form, 
+.smwp-create-form-lab {
+    padding: 1%;
+}
+input.form-control.adresse-num {
+    width: 50px;
+    position: fixed;
+}
+.smwp-select-unity, 
+.smwp-select-address {
+    margin: auto;
+    left: 0;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    height: 35px;
+    text-align: center;
+}
+.smwp-select-unity {
+    width: 50%;
+}
+.smwp_input {
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+}
+.smwp-select-form {
+    width: auto;
+}
+.smwp-add-form {
+    width: 90%;
+}
+.top-left, .top-right {
+    width: 50%;
+    top: 0;
+    float: left;
+}
+input.smwp_input[type="text"], 
+select.smwp-select-unity, 
+select.smwp-select-address {
+    box-sizing: border-box;
+    margin: 1% auto;
+    padding: 4px;
+    height: 28px;
+    border: none;
+    border-bottom: 1px solid #AAA;
+    font-weight: 400;
+    font-size: 15px;
+    transition: 0.2s ease;
+}
+input.smwp_input[type="text"].new-location, 
+input.smwp_input[type="text"].new-lab {
+    width: 50%;
+}
+input.smwp_input[type="text"]:focus {
+    border-bottom: 2px solid #16a085;
+    color: #16a085;
+    transition: 0.2s ease;
+}
+select.smwp-select-unity, 
+select.smwp-select-address, 
+.smwp_input {
+    margin: auto;
+    min-width: 50%;
+    max-width: 100%;
+}
+.smwp-search-form-smwp, 
+.smwp-select-form {
+    width: 100%;
+    margin-top: 0;
+}
+.center-update-form {
+    text-align: center;
+}
+/*STYLE DES BOUTONS */
+
+button.btn-admin, 
+input.btn.btn-primary[type="submit"], 
+.btn-nav, 
+.btn-admin, 
+.btn-delete, 
+input.btn.btn-select-member, 
+.btn.btn-primary.searchBtn {
+    color: #fff;
+    height: 40px;
+    background: #114b5f;
+    border: none;
+    width: 300px;
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: 0.1s ease;
+    cursor: pointer;
+    font-size: 1.1rem;
+    display: block;
+    margin: 2% auto;
+}
+#submit-search-member {
+    height: 50px;
+    border-radius: 8px;
+    margin-top: 15%;
+    width: 80%;
+}
+input.btn.btn-select-member {
+    background: #3D3D3D;
+}
+.btn-nav {
+    background: #a0d800;
+}
+input.btn.btn-danger.btn-delete {
+    color: red;
+    height: 40px;
+    border: none;
+    width: 300px;
+    border: 2px solid #114b5f;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: 0.1s ease;
+    cursor: pointer;
+    font-size: 1.1rem;
+    background-color: #c6dabf;
+}
+input.btn.btn-select-member {
+    background: #3d3d3d;
+}
+button.btn-admin:hover, 
+button.btn-admin:focus, 
+input.btn.btn-primary[type="submit"]:hover, 
+input.btn.btn-primary[type="submit"]:focus {
+    opacity: 0.8;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
+    transition: 0.1s ease;
+}
+button.btn-admin:active, 
+input.btn.btn-primary[type="submit"]:active {
+    opacity: 1;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    transition: 0.1s ease;
+}
+#submit-update-member {
+    background-color: #3d3d3d;
+}
+
+.smwp-btn-mobile-version {
+  display: none;
+}
+
+/**************************RESPONSIVE MEDIA QUERIES*******************************
+ENTRE 1048px && 1330px */
+
+@media (min-width:1048px) AND (max-width:1330px) {
+    .admin-page-directory {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+}
+/*ENTRE 768px && 1048px */
+
+@media screen AND (max-width:1048px)  {
+
+    form#smwp-directory {
+        background: none;
+    }
+    #submit-search-member {
+        width: 90%;
+        margin-top: 0;
+    }
+   .left, 
+   .right {
+        top: 0;
+        position: relative;
+        height: auto;
+        width: 100%;
+    }
+    input.smwp_input[type="text"], 
+    select.smwp-select-unity, 
+    select.smwp-select-address, 
+    input.btn.btn-primary[type="submit"], 
+    button.btn-admin {
+        width: 100%;
+        font-size: 1rem;
+    }
+    .left-search, 
+    .middle-search, 
+    .right-search {
+        width: 100%;
+        padding: 10px 20px;
+    }
+   .right-search {
+    float:none;
+   }
+
+   .title-btn-admin-page-directory {
+        font-size: 1.2em;
+    }
+    .dashicons-admin-page-directory {
+        font-size: 2rem;
+        margin-right: 10%;
+    }
+    option.menu-option-adresse {
+        font-size: 0.8em;
+        overflow: hidden;
+    }
+      .smwp-directory-row, 
+    .column1 {
+        width: 99.5%;
+        margin: 0 auto;
+        border-top-left-radius: 0;
+    }
+
+    .smwp-directory-row {
+        padding: 0.3%;
+    }
+    .smwp-card {
+        width: 90%;
+        margin: auto;
+    }
+    .smwp-btn-dekstop-version {
+      display: none;
+    }
+    .smwp-btn-mobile-version {
+      display: inline-block;
+      width: 90%;
+    }
+
+}
+
+@media (min-width:768px) AND (max-width:1048px) {
+
+    .admin-page-directory {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+/*ENTRE 480px && 768px */
+@media (min-width:480px) AND (max-width:768px) {
+    
+    .admin-page-directory {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+/*jusqu'à 768px */
+@media screen AND (max-width:768px) {
+
+    label.smwp_label {
+        font-size: 1rem;
+    }
+   #smwp-card-update {
+        width: 90%;
+    }
+
+    .intro-admin-update {
+        display: none;
+    }
+
+    #smwp-card-update {
+        width: 50%;
+    }
+   .update-data-form {
+        display: inline-block;
+        font-size: 1em;
+        grid-template-columns: 1fr;
+    }
+
+    .update-data-form-left {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+
+    input.smwp_input[type="text"].new-location, 
+    input.smwp_input[type="text"].new-lab {
+        width: 100%;
+    }
+    .navigation-directory {
+        display: block;
+        float: left;
+    }
+    .top-form {
+        padding: 10px;
+        /*margin-bottom: 10%;*/
+    }
+   
+    .nav-add, 
+    .nav-delete, 
+    .nav-update-lab, 
+    .nav-update-location, 
+    .nav-add-location, 
+    .nav-update-location, 
+    .nav-delete-lab, 
+    .nav-update-member, 
+    .nav-add-adress, 
+    .nav-update-address, 
+    .extra-info-options, 
+    .info-dashboard {
+        display: none;
+    }
+    .one-left, 
+    .two-left {
+        float: none;
+    }
+
+    input.btn.btn-select-member {
+        margin: 5% auto 2% auto;
+        width: 80%;
+        background: #00b5ec;
+        border-radius: 0;
+        font-size: 0.9em;
+    }
+  
+    .btn.btn-primary.searchBtn {
+        margin-top: 5%;
+    }
+    p.smwp_label_first {
+        line-height: 1.5;
+        font-size: 0.9rem;
+    }
+    i.dashicons-warning {
+        line-height: 1;
+    }
+    .update-data-form {
+        font-size: 1em;
+        grid-template-columns: 1fr;
+    }
+    label.smwp_label {
+        font-size: 1rem;
+    }
+    input.smwp_input[type="text"] {
+        font-size: 0.8rem;
+    }
+    .form-group {
+        margin: auto;
+    }
+    
+}
+/*jusque 480px*/
+@media screen AND (max-width:480px) {
+ 
+ .btn-admin-page-directory {
+  width: 70%;
+  margin: 2% auto;
+ }
+    .admin-page-directory {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        width: 100%;
+        font-size: 1em;
+    }
+      .bug-btn-admin {
+      margin-top: 0 !important;
+      padding-top: 3%;
+  }
+}
