@@ -1,6 +1,10 @@
 # WordPress Directory Plugin
 
-### Table Of Contents
+A WordPress Plugin to show the employees directory's on the new wordpress websites. 
+
+![Directory screenshot](/assets/Screenshot_Annuaire.png)
+
+## Table Of Contents
 * [Introduction](#intro)
 * [Context](#context)
 * [Prerequisites](#prerequisites)
@@ -15,11 +19,9 @@ There is a filter on the laboratories and a dynamic search bar for people's name
 It was made during my first developer job.  
 * HTML / CSS / PHP / MySQL / JavaScript
 
-![Directory screenshot](/public/.jpg)
-
 ## Context<a name="context"></a> 
 
-During a rebuild project I was managing the change of CMS lead me to build a new directory plugin in order to handle the old postgre database with the new mysql wordpress database.
+During a rebuild project I was managing the change of CMS lead me to build a new directory plugin in order to handle the old postgre database with the new mysql wordpress database. It was a ldap directory and for a question of data's security, I had to build our own plugin.
 
 For explaining the context a bit more, I was working alone in the web pole so I have to find out the informations to build a wordpress plugin without "a dev" help (thank you Browser!). I make choices among all the informations of "how to do a plugin" on the web. So maybe some of them were not the best ones.   
 But at the end of my contract I delivered my first plugin and it was working, I tested it and I deployed it on the wordpress websites.
