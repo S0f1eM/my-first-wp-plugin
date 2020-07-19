@@ -2,7 +2,7 @@
 
 A WordPress Plugin to show the employees directory's on the new wordpress websites. 
 
-![Directory screenshot](/assets/Screenshot_Annuaire.png)
+![Directory screenshot](/assets/Screenshot_directory.png)
 
 ## Table Of Contents
 * [Introduction](#intro)
