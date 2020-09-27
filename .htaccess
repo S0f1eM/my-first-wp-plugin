@@ -3,46 +3,21 @@ order allow,deny
 deny from all
 </Files>
 
-### SEUL LE FICHIER index.php EST SERVI COMME PREMIER FICHIER PAR DEFAUT. LES AUTRES SONT INTERDITS
 DirectoryIndex index.php
 RewriteEngine On
-### INTERDIRE LES AUTRES TYPES DE FICHIER INDEX
 RewriteRule "^(index)\.(p?s?x?htm?|txt|aspx?|cfml?|cgi|pl|php[3-9]|jsp|xml)$" - [F]
-### INTERDIRE L'AFFICHAGE DE CERTAINS FORMATS DE FICHIER 
-### EXÉCUTÉS PAR LE SERVEUR MAIS INTERDIT D'AFFICHAGE PAR LE NAVIGATEUR WEB
 RewriteRule "(\.(asp|bak|bash|bin|bkp|c|class|conf|config|cvs|cxz|dat|dist|dll|env|exe|fla|git|h|hg|inc|ini|jsp|log|mdb|module|mso|pl|psd|py|rar|sh|spd|sql|svn|sw[op]|theme|tpl)|~)$" - [F]
-### DOSSIERS EN ACCES INTERDIT PAR LE NAVIGATEUR WEB
-### A ADAPTER SI CELA POSE PROBLEME
 RewriteRule "(\.svn|\.git|\.hg|\.bzr|\.cvs|install?|users?|config(ure|uration)?|options?|settings?|functions?|setup|[-_a-z0-9.]*cms[-_a-z0-9.]*|manager|null)/.*" - [F]
-### INTERDIRE L'AFFICHAGE DE CERTAINS FICHIERS COMME readme, changelog, default, xmlrpc. 
-### CES FICHIERS DONNENT DES INFORMATIONS PRECIEUSES SUR LE SERVEUR INSTALLÉ (NOM ET NUMÉRO DE VERSION). 
-### A ADAPTER SI CELA POSE PROBLEME
 RewriteRule "(readme|README|changelog|CHANGELOG|license|LICENSE|default|xmlrpc|local|errors?|debug|hacke?r?d?|php|shell|ssh|roots?|cmd|null|test|data)\.(p?s?x?htm?l?|txt|md|log|aspx?|cfml?|cgi|pl|php[3-9]{0,1}|jsp?|sql|xml)$" - [F]
-### SI VOUS N'UTILISEZ PAS DE CMS, VOUS POUVEZ AUSSI AJOUTER LE CODE CI-DESSOUS
-### RETIREZ LES CARACTÈRES '#' EN DÉBUT DE LIGNE POUR L'ACTIVER
-###<FilesMatch "(install?|users?|upload|register|config(\.inc|ure|uration)?|options?(\.inc)?|settings?(\.inc)?|functions?(\.inc)?|setup(\.inc)?)\.(p?s?x?htm?l?|txt|md|log|aspx?|cfml?|cgi|pl|php[3-9]{0,1}|jsp?)$"<
-###order allow,deny
-###deny from all
-###</FilesMatch>
-### INTERDIRE L'ACCES AUX INTERFACES D'ADMINISTRATION DE WORDPRESS OU AUTRE CMS
-### AVEC UN ACCES CLASSIQUE PAR DEFAUT QUI SE DEVINE FACILEMENT COMME login ou wp-login, admin, etc.
-### RETIREZ LES CARACTÈRES '#' EN DÉBUT DE LIGNE POUR L'ACTIVER
-###RewriteRule "(wp-?|wordpress|login|(my)?admin(istrator)?(zone)?)" - [F]
 
 Options -Indexes
-
-###FILTRE CONTRE CERTAINS ROBOTS DES PIRATES
 RewriteEngine On
-## EXCEPTION: TOUS LES ROBOTS MEMES ANONYMES OU BANNIS PEUVENT ACCEDER A CES FICHIERS
 RewriteCond %{REQUEST_URI} !^robots.txt
 RewriteCond %{REQUEST_URI} !^sitemap.xml
-##
 RewriteCond %{HTTP_USER_AGENT} ^-?$ [OR] ## ANONYMES
 RewriteCond %{HTTP_USER_AGENT} ^curl|^Fetch\ API\ Request|GT::WWW|^HTTP::Lite|httplib|^Java|^LeechFTP|lwp-trivial|^LWP|libWeb|libwww|^PEAR|PECL::HTTP|PHPCrawl|PycURL|python|^ReGet|Rsync|Snoopy|URI::Fetch|urllib|WebDAV|^Wget [NC] ## BIBLIOTHEQUES / CLASSES HTTP DONT ON NE VEUT PAS. ATTENTION, CELA PEUT BLOQUER CERTAINES FONCTIONS DE VOTRE CMS. NE PAS TOUT EFFACER, MAIS CHERCHEZ LE NOM DE LA CLASSE HTTP CONCERNEE (DEMANDEZ AUX DEVELOPPEURS DE VOTRE CMS). CETTE LISTE BLOQUE 80% DES ROBOTS SPAMMEURS. IL FAUT LA CONSERVER.
-## RewriteCond %{HTTP_USER_AGENT} ^[bcdfghjklmnpqrstvwxz\ ]{10,}|^[0-9a-z]{15,}|^[0-9A-Za-z]{19,}|^[A-Za-z]{3,}\ [a-z]{4,}\ [a-z]{4,} [OR] ## CEUX QUI INVENTENT DES NOMS AU HASARD, RETIREZ LES 2 DIESES EN DEBUT DE LIGNE POUR L'ACTIVER
 RewriteRule (.*) [F]
 
-### FILTRE CONTRE XSS, REDIRECTIONS HTTP, base64_encode, VARIABLE PHP GLOBALS VIA URL, MODIFIER VARIABLE _REQUEST VIA URL, TEST DE FAILLE PHP, INJECTION SQL SIMPLE
 RewriteEngine On
 RewriteCond %{REQUEST_METHOD} (GET|POST) [NC]
 RewriteCond %{QUERY_STRING} ^(.*)(%3C|<)/?script(.*)$ [NC,OR]
@@ -50,19 +25,12 @@ RewriteCond %{QUERY_STRING} ^(.*)(%3D|=)?javascript(%3A|:)(.*)$ [NC,OR]
 RewriteCond %{QUERY_STRING} ^(.*)document\.location\.href(.*)$ [OR]
 RewriteCond %{QUERY_STRING} ^.*(%24&x).* [NC,OR]
 RewriteCond %{QUERY_STRING} ^.*(127\.0).* [NC,OR]
-RewriteCond %{QUERY_STRING} ^(.*)(%3D|=)(https?|ftp|mosConfig)(%3A|:)//(.*)$ [NC,OR] ## ATTENTION A CETTE REGLE. ELLE PEUT CASSER CERTAINES REDIRECTIONS RESSEMBLANT A: http://www.truc.fr/index.php?r=http://www.google.fr ##
+RewriteCond %{QUERY_STRING} ^(.*)(%3D|=)(https?|ftp|mosConfig)(%3A|:)//(.*)$ [NC,OR]
 RewriteCond %{QUERY_STRING} ^.*(_encode|localhost|loopback).* [NC,OR]
 RewriteCond %{QUERY_STRING} ^(.*)GLOBALS(=|[|%[0-9A-Z]{0,2})(.*)$ [OR]
 RewriteCond %{QUERY_STRING} ^(.*)_REQUEST(=|[|%[0-9A-Z]{0,2})(.*)$ [OR]
 RewriteCond %{QUERY_STRING} ^(.*)(SELECT(%20|\+)|UNION(%20|\+)ALL|INSERT(%20|\+)|DELETE(%20|\+)|CHAR\(|UPDATE(%20|\+)|REPLACE(%20|\+)|LIMIT(%20|\+)|CONCAT(%20|\+)|DECLARE(%20|\+))(.*)$ [NC]
 RewriteRule (.*) [F]
-
-### DES FAUX URLS OU VIEUX SYSTEMES OBSOLETES, ON LES NEUTRALISE
 RedirectMatch 403 (\.\./|base64|boot\.ini|eval\(|\(null\)|^[-_a-z0-9/\.]*//.*|/etc/passwd|^/_vti.*|^/MSOffice.*|/fckeditor/|/elfinder/|zoho/|/jquery-file-upload/server/|/assetmanager/|wwwroot|e107\_|netcat)
-# DESACTIVE LES METHODES DE REQUETES TRACE TRACK DELETE
-RewriteEngine On
 RewriteCond %{REQUEST_METHOD} ^(TRACE|DELETE|TRACK) [NC]
-RewriteRule ^.* [F]
-
-# Aucun script dans le dossier et ses sous-dossiers, que ce soit PHP, PERL ou autre CGI, ne pourra s'executer si ExecCGI est inactif. Et interdit d'afficher la liste des fichiers.
 OPTIONS -ExecCGI  -Indexes
